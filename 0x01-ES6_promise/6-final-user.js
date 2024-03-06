@@ -1,8 +1,8 @@
-const signUpUser = require('./4-user-promise');
-const uploadPhoto = require('./5-photo-reject');
+import signUpUser from './4-user-promise';
+import uploadPhoto from './5-photo-reject';
 
-export default function handleProfileSignup(firstName, lastName, fileName) {
+export default function handleProfileSignup(firstName, lastName, filename) {
   const userPromise = signUpUser(firstName, lastName);
-  const filePromise = uploadPhoto(fileName);
+  const filePromise = uploadPhoto(filename);
   return Promise.allSettled([userPromise, filePromise]);
 }
