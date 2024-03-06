@@ -1,4 +1,4 @@
-import getFullResponseFromAPI from './1-promise';
+import divideFunction from './8-try';
 
-console.log(getFullResponseFromAPI(true));
-console.log(getFullResponseFromAPI(false));
+console.log(divideFunction(10, 2));
+console.log(divideFunction(10, 0));
