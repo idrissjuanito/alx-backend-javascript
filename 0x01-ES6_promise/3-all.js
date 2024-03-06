@@ -1,4 +1,4 @@
-import { uploadPhoto, createUser } from './utils';
+const { uploadPhoto, createUser } = require('./utils');
 
 export default function handleProfileSignup() {
   const photo = uploadPhoto();
