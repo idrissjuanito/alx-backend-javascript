@@ -16,12 +16,12 @@ export default class Pricing {
   }
 
   get currency() {
-    return this._amount;
+    return this._currency;
   }
 
   set currency(value) {
     if (!(value instanceof Currency)) throw new TypeError('Currency must be a currency');
-    this._amount = value;
+    this._currency = value;
   }
 
   displayFullPrice() {
