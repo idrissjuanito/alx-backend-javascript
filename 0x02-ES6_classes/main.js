@@ -1,7 +1,9 @@
-import EVCar from './100-evcar.js';
+import listOfStudents from "./9-hoisting.js";
 
-const ec1 = new EVCar("Tesla", "Turbo", "Red", "250");
-console.log(ec1);
+console.log(listOfStudents);
 
-const ec2 = ec1.cloneCar();
-console.log(ec2);
+const listPrinted = listOfStudents.map(
+    student => student.fullStudentDescription
+);
+
+console.log(listPrinted)
