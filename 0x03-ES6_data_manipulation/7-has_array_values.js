@@ -1,3 +1,7 @@
 export default function hasValuesFromArray(set, arr) {
-  return set.isSupersetOf(new Set(arr));
+  let hasAll = true;
+  arr.forEach((elm) => {
+    hasAll = hasAll ? set.has(elm) : false;
+  });
+  return hasAll;
 }
