@@ -1,5 +1,5 @@
 export default function cleanSet(set, startString) {
-  if (startString.length === 0) return '';
+  if (startString.length === 0 || !(set instanceof Set)) return '';
   const str = [];
   set.forEach((elm) => {
     if (elm.startsWith(startString) && elm.length > startString.length) {
@@ -8,6 +8,3 @@ export default function cleanSet(set, startString) {
   });
   return str.join('-');
 }
-
-console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana', 'bon']), 'bon'));
-console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']), ''));
