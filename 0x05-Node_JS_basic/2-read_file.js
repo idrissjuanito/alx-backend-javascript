@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 const fs = require('fs');
 
-process.on('uncaughtException', (err) => {
-  throw new Error('Cannot load the database');
-});
-
 function countStudents(path) {
+  process.on('uncaughtException', (err) => {
+    throw new Error('Cannot load the database');
+  });
   const content = fs.readFileSync(path, 'utf-8');
   let studentCount = 0;
   let line = '';
@@ -37,5 +36,4 @@ function countStudents(path) {
   }
 }
 
-countStudents('database.csv');
 module.exports = countStudents;
