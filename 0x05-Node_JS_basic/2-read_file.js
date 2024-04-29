@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 
 process.on('uncaughtException', (err) => {
