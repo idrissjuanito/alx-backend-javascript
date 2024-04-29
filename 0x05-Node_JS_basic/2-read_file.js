@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 const fs = require('fs');
 
 process.on('uncaughtException', (err) => {
@@ -23,10 +22,13 @@ function countStudents(path) {
     }
     const studentData = line.split(',');
     const field = studentData[studentData.length - 1];
-    Object.keys(studentsByField).includes(field)
-      ? studentsByField[field].push(studentData[0])
-      : studentsByField[field] = [studentData[0]];
-    line = ''
+    const fields = Object.keys(studentsByField);
+    if (fields.includes(field)) {
+      studentsByField[field].push(studentData[0]);
+    } else {
+      studentsByField[field] = [studentData[0]];
+    }
+    line = '';
   }
   console.log('Number of students:', studentCount);
 
