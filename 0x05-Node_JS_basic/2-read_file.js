@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 function countStudents(path) {
-  process.on('uncaughtException', (err) => {
+  process.on('uncaughtException', () => {
     throw new Error('Cannot load the database');
   });
   const content = fs.readFileSync(path, 'utf-8');
@@ -10,24 +10,22 @@ function countStudents(path) {
   let line = '';
   const studentsByField = {};
   for (let i = 0; i < content.length; i += 1) {
-    if (content[i] !== '\n') {
-      line += content[i];
-      continue;
-    }
-    studentCount += 1;
-    if (studentCount < 2) {
-      line = '';
-      continue;
-    }
-    const studentData = line.split(',');
-    const field = studentData[studentData.length - 1];
-    const fields = Object.keys(studentsByField);
-    if (fields.includes(field)) {
-      studentsByField[field].push(studentData[0]);
+    if (content[i] === '\n') {
+      studentCount += 1;
+      if (studentCount > 1) {
+        const studentData = line.split(',');
+        const field = studentData[studentData.length - 1];
+        const fields = Object.keys(studentsByField);
+        if (fields.includes(field)) {
+          studentsByField[field].push(studentData[0]);
+        } else {
+          studentsByField[field] = [studentData[0]];
+        }
+        line = '';
+      }
     } else {
-      studentsByField[field] = [studentData[0]];
+      line += content[i];
     }
-    line = '';
   }
   console.log('Number of students:', studentCount -= 1);
 
@@ -35,5 +33,4 @@ function countStudents(path) {
     console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
   }
 }
-
 module.exports = countStudents;
