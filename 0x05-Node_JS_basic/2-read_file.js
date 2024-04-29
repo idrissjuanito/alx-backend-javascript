@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 
 process.on('uncaughtException', (err) => {
@@ -29,7 +30,7 @@ function countStudents(path) {
   }
   console.log('Number of students:', studentCount);
 
-  for (const [ key, value ] of Object.entries(studentsByField)) {
+  for (const [key, value] of Object.entries(studentsByField)) {
     console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
   }
 }
