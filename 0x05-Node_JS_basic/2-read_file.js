@@ -21,8 +21,8 @@ function countStudents(path) {
         } else {
           studentsByField[field] = [studentData[0]];
         }
-        line = '';
       }
+      line = '';
     } else {
       line += content[i];
     }
@@ -33,4 +33,5 @@ function countStudents(path) {
     console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
   }
 }
+
 module.exports = countStudents;
