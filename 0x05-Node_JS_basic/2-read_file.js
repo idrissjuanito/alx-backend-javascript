@@ -29,12 +29,6 @@ function countStudents(path) {
       line += content[i];
     }
   }
-  console.log('Numr of students:', studentCount -= 1);
-
-  for (const [key, value] of Object.entries(studentsByField)) {
-    console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
-  }
-  console.log();
 }
 
 module.exports = countStudents;
