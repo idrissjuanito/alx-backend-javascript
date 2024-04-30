@@ -26,12 +26,13 @@ async function countStudents(path) {
         line += content[i];
       }
     }
-    if (studentCount < 1) return;
+    if (studentCount < 1) return '';
     console.log('Number of students:', studentCount -= 1);
 
     for (const [key, value] of Object.entries(studentsByField)) {
       console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
     }
+    return content;
   } catch (e) {
     throw new Error('Cannot load the database');
   }

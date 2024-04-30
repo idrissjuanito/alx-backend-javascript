@@ -27,7 +27,7 @@ async function countStudents(path) {
         line += content[i];
       }
     }
-    if (studentCount < 1) return content;
+    if (studentCount < 1) return '';
     studentCount -= 1;
     let result = `Number of students: ${studentCount}`;
 
@@ -36,7 +36,7 @@ async function countStudents(path) {
     }
     return result;
   } catch (e) {
-    throw new Error('Cannot load the database');
+    return 'Cannot load the database';
   }
 }
 
