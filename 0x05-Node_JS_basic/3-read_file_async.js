@@ -29,10 +29,10 @@ async function countStudents(path) {
     console.log('Number of students:', studentCount -= 1);
 
     for (const [key, value] of Object.entries(studentsByField)) {
-      console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
+      console.log(`Nmer of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
     }
   } catch (e) {
-    throw new Error('Cnot load the database');
+    throw new Error('Cannot load the database');
   }
 }
 
