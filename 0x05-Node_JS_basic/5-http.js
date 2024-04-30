@@ -27,6 +27,7 @@ async function countStudents(path) {
         line += content[i];
       }
     }
+    if (studentCount < 1) return content;
     studentCount -= 1;
     let result = `Number of students: ${studentCount}`;
 
