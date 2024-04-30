@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = require('fs/promises');
+const fs = require('fs').promises;
 
 const app = express();
 
@@ -41,14 +41,17 @@ async function countStudents(path) {
     return 'Cannot load the database';
   }
 }
+
 app.get('/', (req, res) => {
   res.set('Content-Type', 'text/plain');
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', async (req, res) => {
+  res.set('Content-Type', 'text/plain');
   const students = await countStudents(process.argv[2]);
   res.end(`This is the list of our students\n${students}`);
 });
+
 app.listen(1245);
 module.exports = app;
