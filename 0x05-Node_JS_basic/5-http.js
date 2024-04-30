@@ -27,7 +27,8 @@ async function countStudents(path) {
         line += content[i];
       }
     }
-    let result = 'Number of students:' + studentCount--;
+    studentCount -= 1;
+    let result = `Number of students: ${studentCount}`;
 
     for (const [key, value] of Object.entries(studentsByField)) {
       result += `\nNumber of students in ${key}: ${value.length}. List: ${value.join(', ')}`;
