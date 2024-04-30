@@ -8,7 +8,7 @@ async function countStudents(path) {
     const studentsByField = {};
     for (let i = 0; i < content.length; i += 1) {
       if (content[i] === '\n') {
-        if (line.length > 1) {
+        if (line.length > 0) {
           studentCount += 1;
           if (studentCount > 1) {
             const studentData = line.split(',');
