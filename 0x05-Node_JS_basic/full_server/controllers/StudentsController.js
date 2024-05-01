@@ -1,9 +1,10 @@
 const readDatabase = require('../utils');
 
+const DATABASE = process.argv[2];
 class StudentsController {
   static async getAllStudents(request, response) {
     try {
-      const students = await readDatabase('database.csv');
+      const students = await readDatabase(DATABASE);
       let result = 'This is the list of our students';
       const fields = Object.keys(students);
       fields.sort();
@@ -23,7 +24,7 @@ class StudentsController {
       return response.status(500).send('Major parameter must be CS or SWE');
     }
     try {
-      const students = await readDatabase('database.csv');
+      const students = await readDatabase(DATABASE);
       return response.send(`List: ${students[major].join(', ')}`);
     } catch (e) {
       return response.status(500).send('Cannot load the database');
