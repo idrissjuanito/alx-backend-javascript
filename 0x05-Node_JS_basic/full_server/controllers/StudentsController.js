@@ -1,0 +1,34 @@
+const readDatabase = require('../utils');
+
+class StudentsController {
+  static async getAllStudents(request, response) {
+    try {
+      const students = await readDatabase('database.csv');
+      let result = 'This is the list of our students';
+      const fields = Object.keys(students);
+      fields.sort();
+      fields.forEach((key) => {
+        const value = students[key];
+        result += `\nNumber of students in ${key}: ${value.length}. List: ${value.join(', ')}`;
+      });
+      response.status(200).send(result);
+    } catch (e) {
+      response.status(500).send('Cannot load the database');
+    }
+  }
+
+  static async getAllStudentsByMajor(request, response) {
+    const { major } = request.params;
+    if (!['CS', 'SWE'].includes(major)) {
+      return response.status(500).send('Major parameter must be CS or SWE');
+    }
+    try {
+      const students = await readDatabase('database.csv');
+      return response.send(`List: ${students[major].join(', ')}`);
+    } catch (e) {
+      return response.status(500).send('Cannot load the database');
+    }
+  }
+}
+
+module.exports = StudentsController;
