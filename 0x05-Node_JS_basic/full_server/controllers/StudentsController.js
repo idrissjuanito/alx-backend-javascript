@@ -25,7 +25,7 @@ class StudentsController {
     }
     try {
       const students = await readDatabase(DATABASE);
-      return response.send(`List: ${students[major].join(', ')}`);
+      return response.status(200).send(`List: ${students[major].join(', ')}`);
     } catch (e) {
       return response.status(500).send('Cannot load the database');
     }
