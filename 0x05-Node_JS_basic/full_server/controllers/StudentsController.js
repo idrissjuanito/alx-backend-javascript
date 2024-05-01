@@ -21,13 +21,13 @@ class StudentsController {
   static async getAllStudentsByMajor(request, response) {
     const { major } = request.params;
     if (!['CS', 'SWE'].includes(major)) {
-      return response.status(500).send('Major parameter must be CS or SWE');
+      response.status(500).send('Major parameter must be CS or SWE');
     }
     try {
       const students = await readDatabase(DATABASE);
-      return response.status(200).send(`List: ${students[major].join(', ')}`);
+      response.status(200).send(`List: ${students[major].join(', ')}`);
     } catch (e) {
-      return response.status(500).send('Cannot load the database');
+      response.status(500).send('Cannot load the database');
     }
   }
 }
