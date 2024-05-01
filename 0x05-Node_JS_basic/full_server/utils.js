@@ -3,7 +3,7 @@ const fs = require('fs');
 async function readDatabase(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (error, content) => {
-      if (error) reject(error);
+      if (error) return reject(error);
       let studentCount = 0;
       let line = '';
       const studentsByField = {};
@@ -27,7 +27,7 @@ async function readDatabase(path) {
           line += content[i];
         }
       }
-      resolve(studentsByField);
+      return resolve(studentsByField);
     });
   });
 }
