@@ -38,7 +38,7 @@ describe('calculateNumber', () => {
   });
   describe('When type is DIVIDE', () => {
     it('test divide normal case', () => {
-      assert.equal(calculateNumber('DIVIDE', 4, 2), 2);
+      assert.equal(calculateNumber('DIVIDE', 12, 2), 6);
     });
     it('test divide with b o after rounding', () => {
       assert.equal(calculateNumber('DIVIDE', 3, 0.4), 'Error');
