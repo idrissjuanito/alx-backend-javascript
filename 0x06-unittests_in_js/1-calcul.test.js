@@ -21,19 +21,19 @@ describe('calculateNumber', () => {
   });
   describe('When type is SUBSTRACT', () => {
     it('should test a as float', () => {
-      assert.equal(calculateNumber('SUBSTRACT', 1.2, 3), -2);
+      assert.equal(calculateNumber('SUBTRACT', 1.2, 3), -2);
     });
     it('test b as float', () => {
-      assert.equal(calculateNumber('SUBSTRACT', 9, 3.8), 5);
+      assert.equal(calculateNumber('SUBTRACT', 9, 3.8), 5);
     });
     it('test a and b as float', () => {
-      assert.equal(calculateNumber('SUBSTRACT', 3.9, 3.8), 0);
+      assert.equal(calculateNumber('SUBTRACT', 3.9, 3.8), 0);
     });
     it('test a and b as int', () => {
-      assert.equal(calculateNumber('SUBSTRACT', 7, 3), 4);
+      assert.equal(calculateNumber('SUBTRACT', 7, 3), 4);
     });
     it('test b as float', () => {
-      assert.equal(calculateNumber('SUBSTRACT', 5, 3.1), 2);
+      assert.equal(calculateNumber('SUBTRACT', 5, 3.1), 2);
     });
   });
   describe('When type is DIVIDE', () => {
